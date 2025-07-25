@@ -42,6 +42,8 @@ Six models were trained and evaluated:
  
  6️⃣ DAgger LSTM (Tuned) | DAgger LSTM with tuning 
 
+The tuned (weighted+filtered) approach combines expert demonstrations and policy-generated (DAgger) episodes by assigning each a distinct weight during training—typically, expert data is given higher importance (e.g., 0.8) while DAgger data receives a lower weight (e.g., 0.2). Additionally, only successful DAgger rollouts are added to the training set, ensuring the policy learns from both high-quality expert trajectories and its own successful experiences, while minimizing the impact of poor or failed attempts. This technique aims to improves policy learning efficiency and robustness by focusing on valuable data and appropriately balancing the influence of expert and self-generated samples.
+
 Each model undergoes **grid search** over hyperparameters:
 - Learning rate
 - Hidden size
